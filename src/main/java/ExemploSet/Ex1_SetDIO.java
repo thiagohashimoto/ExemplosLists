@@ -12,12 +12,14 @@ h) Confira se o conjunto está vazio
  */
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Ex1_SetDIO {
     public static void main(String[] args) {
 
-        Set<ArcoIris> arcoIris = new HashSet<>(){{
+        Set<ArcoIris> arcoIris = new LinkedHashSet<>(){{
             add(new ArcoIris("Vermelho"));
             add(new ArcoIris("Laranja"));
             add(new ArcoIris("Amarelo"));
@@ -26,10 +28,24 @@ public class Ex1_SetDIO {
             add(new ArcoIris("Anil"));
             add(new ArcoIris("Violeta"));
         }};
-
+        int count = 0;
         for(ArcoIris arcoiris : arcoIris){
+            count++;
             System.out.println(arcoiris.getCor());
         }
+
+        System.out.println("Quantidade de cores: " + count);
+
+        System.out.println("--\tOrdem Alfabética\t--");
+        Set<ArcoIris> arcoIris2 = new TreeSet<>(new ComparatorCor());
+            arcoIris2.addAll(arcoIris);
+        for(ArcoIris arcoiris : arcoIris2){
+            System.out.println(arcoiris.getCor());
+        }
+
+        System.out.println("--\tOrdem Inversa\t--");
+
+
 
 
 
