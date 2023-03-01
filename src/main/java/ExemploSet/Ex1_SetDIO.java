@@ -11,10 +11,7 @@ g) Limpe o conjunto
 h) Confira se o conjunto está vazio
  */
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Ex1_SetDIO {
     public static void main(String[] args) {
@@ -44,11 +41,31 @@ public class Ex1_SetDIO {
         }
 
         System.out.println("--\tOrdem Inversa\t--");
+        Set<String> arcoIris3 = new LinkedHashSet<>(Arrays.asList("Violeta", "Anil", "Azul", "Verde", "Amarelo", "Laranja", "Vermelho"));
+        System.out.println(arcoIris3);
+        List<String> arcoIrisList3 = new ArrayList<>(arcoIris3);
+        Collections.reverse(arcoIrisList3);
+        System.out.println(arcoIrisList3);
 
+        System.out.println("--\tExiba todas as cores que começam com a letra ”v” \t--");
+        for (String cor : arcoIris3 ){
+            if(cor.startsWith("V")) System.out.println(cor);
+            }
 
+        System.out.println("--\tRemova todas as cores que não comecam com a letra ”v” \t--");
+        arcoIris3.removeIf(s -> s.startsWith("V"));
+        System.out.println(arcoIris3);
 
+        System.out.println("--\tLimpe o conjunto\t--");
+        arcoIris3.clear();
+        System.out.println(arcoIris3);
 
+        System.out.println("--\tConfira se o conjunto está vazio\t--");
+        System.out.println(arcoIris3.isEmpty());
 
+        //Estudar sobre iterator
+
+        }
     }
-}
+
 
