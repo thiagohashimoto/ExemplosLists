@@ -48,6 +48,10 @@ public class Ex2_SetDIO {
             System.out.println(linguagem2);
 
         System.out.println("--\tOrdem por Ano de Criação e Nome\t--");
+        Set<LinguagemFavorita> minhasLinguagensFavoritas4 = new TreeSet<LinguagemFavorita>(new ComparatorAnoNome());
+        minhasLinguagensFavoritas4.addAll(minhasLinguagensFavoritas);
+        for (LinguagemFavorita linguagem3 : minhasLinguagensFavoritas4)
+            System.out.println(linguagem3);
 
     }
 }
@@ -102,3 +106,11 @@ class ComparatorIde implements Comparator<LinguagemFavorita>{
     }
 }
 
+class ComparatorAnoNome implements Comparator<LinguagemFavorita>{
+    @Override
+    public int compare(LinguagemFavorita lf1, LinguagemFavorita lf2) {
+        int anoDeCriacao = Integer.compare(lf1.anoDeCriacao, lf2.anoDeCriacao);
+        if (anoDeCriacao != 0 ) return anoDeCriacao;
+        return lf1.nome.compareToIgnoreCase(lf2.nome);
+    }
+}
